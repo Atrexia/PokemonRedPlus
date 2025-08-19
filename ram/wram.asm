@@ -782,6 +782,7 @@ wOptionsTextSpeedCursorX:: db
 wOptionsBattleAnimCursorX:: db
 wOptionsBattleStyleCursorX:: db
 wOptionsCancelCursorX:: db
+wVersionMode:: db   ; 0 = Red Version, 1 = Blue Version
 
 NEXTU
 ; tile ID of the badge number being drawn

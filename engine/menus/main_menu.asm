@@ -34,7 +34,7 @@ MainMenu:
 	jr z, .noSaveFile
 ; there's a save file
 	hlcoord 0, 0
-	ld b, 6
+	ld b, 8 ; Bounding Box height with a save file
 	ld c, 13
 	call TextBoxBorder
 	hlcoord 2, 2
@@ -43,7 +43,7 @@ MainMenu:
 	jr .next2
 .noSaveFile
 	hlcoord 0, 0
-	ld b, 4
+	ld b, 6   ; Bounding Box height without a save
 	ld c, 13
 	call TextBoxBorder
 	hlcoord 2, 2
@@ -64,6 +64,7 @@ MainMenu:
 	ld a, PAD_A | PAD_B | PAD_START
 	ld [wMenuWatchedKeys], a
 	ld a, [wSaveFileStatus]
+	inc a                
 	ld [wMaxMenuItem], a
 	call HandleMenuInput
 	bit B_PAD_B, a
@@ -84,6 +85,9 @@ MainMenu:
 	jr z, .choseContinue
 	cp 1
 	jp z, StartNewGame
+
+	cp 2
+	jp z, StartMenuVersion    ; <– our new handler for VERSION 
 	call DisplayOptionMenu
 	ld a, TRUE
 	ld [wOptionsInitialized], a
@@ -324,6 +328,15 @@ StartNewGameDebug:
 	call DelayFrames
 
 ; enter map after using a special warp or loading the game from the main menu
+
+;====== atrexia =================================
+; Handler for VERSION option on the title screen
+;===============================================
+
+StartMenuVersion:
+    call DisplayVersionSubmenu
+    jp MainMenu.mainMenuLoop
+
 SpecialEnterMap::
 	xor a
 	ldh [hJoyPressed], a
@@ -346,9 +359,10 @@ ContinueText:
 	; fallthrough
 
 NewGameText:
-	db   "NEW GAME"
+    db   "NEW GAME"
+    next "VERSION"
 	next "OPTION@"
-
+    
 CableClubOptionsText:
 	db   "TRADE CENTER"
 	next "COLOSSEUM"
@@ -724,3 +738,11 @@ CheckForPlayerNameInSRAM:
 	ld [rBMODE], a
 	scf
 	ret
+
+;====== atrexia =================================
+; Placeholder: DisplayVersionSubmenu
+; (to be replaced with actual version selection UI later)
+;===============================================
+DisplayVersionSubmenu:
+    ; stub – just return to title screen right away
+    jp MainMenu.mainMenuLoop
