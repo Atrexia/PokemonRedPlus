@@ -1,17 +1,17 @@
-# Pokémon Red and Blue [![Build Status][ci-badge]][ci]
+## About Pokémon Red+
 
-This is a disassembly of Pokémon Red and Blue.
+This fork aims to create **Pokémon Red+**, a version-enhanced ROM hack which allows the player to switch between **Red** and **Blue** version content from a single game.
 
-It builds the following ROMs:
+### Planned Features
 
-- Pokemon Red (UE) [S][!].gb `sha1: ea9bcae617fdf159b045185467ae58b2e4a48b9a`
-- Pokemon Blue (UE) [S][!].gb `sha1: d7037c83e1ae5b39bde3c30787637ba1d4c48ce2`
-- BLUEMONS.GB (debug build) `sha1: 5b1456177671b79b263c614ea0e7cc9ac542e9c4`
-- dmgapae0.e69.patch `sha1: 0fb5f743696adfe1dbb2e062111f08f9bc5a293a`
-- dmgapee0.e68.patch `sha1: ed4be94dc29c64271942c87f2157bca9ca1019c7`
+- Title screen option to choose **Red** or **Blue** version mode
+- Access to version-exclusive Pokémon without separate ROMs
+- All core gameplay remains faithful to Gen 1
 
-To set up the repository, see [**INSTALL.md**](INSTALL.md).
+> *This is an ongoing WIP and not currently intended for public distribution.*
 
+<BR>
+<BR>
 
 ## See also
 
@@ -19,7 +19,7 @@ To set up the repository, see [**INSTALL.md**](INSTALL.md).
 - [**Symbols**][symbols]
 - [**Tools**][tools]
 
-You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+You can find the Pret team on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
 
 For other pret projects, see [pret.github.io](https://pret.github.io/).
 
